@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI NEXUS | Premium Digital Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #ffffff;
+            --bg: #050505;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .service-img-placeholder {
+            background: linear-gradient(45deg, #111, #222);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-img-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            top: -25%;
+            left: -25%;
+        }
+        .marquee {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 4rem;
+            mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+        }
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            gap: 4rem;
+            min-width: 100%;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 4rem)); }
+        }
+        .custom-cursor {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out;
+        }
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.2s ease-out, left 0.15s ease-out, top 0.15s ease-out;
+        }
+        @media (max-width: 768px) {
+            .custom-cursor, .cursor-follower { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="cursor-follower" id="follower"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-black/50 backdrop-blur-xl border-b border-white/5">
+        <div class="text-xl font-extrabold tracking-tighter italic">AI.NEXUS</div>
+        <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] text-gray-500">
+            <a href="#services" class="hover:text-white transition-colors">SERVICES</a>
+            <a href="#trusted" class="hover:text-white transition-colors">CLIENTS</a>
+            <a href="#testimonials" class="hover:text-white transition-colors">TESTIMONIALS</a>
+        </div>
+        <a href="https://wa.me/917209260465?text=Hi, I am interested in your AI services. Let's discuss." 
+           class="bg-white text-black px-6 py-2 rounded-full text-xs font-bold hover:scale-105 transition-transform">
+            GET IN TOUCH
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+        <span data-aos="fade-up" class="text-[10px] tracking-[0.8em] text-gray-500 mb-6 uppercase">Architecting the Artificial</span>
+        <h1 data-aos="fade-up" data-aos-delay="100" class="text-6xl md:text-[120px] font-extrabold text-center leading-[0.85] mb-12 text-gradient tracking-tighter">
+            AI POWERED<br>CREATION.
+        </h1>
+        <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col md:flex-row items-center gap-6">
+            <a href="#services" class="px-10 py-4 bg-white/5 border border-white/10 rounded-full text-xs font-bold hover:bg-white hover:text-black transition-all">OUR EXPERTISE</a>
+            <p class="text-gray-500 text-xs max-w-[200px] text-center md:text-left">Solving complex requirements with custom AI agents and elite web engineering.</p>
+        </div>
+    </section>
+
+    <!-- Trusted By Marquee -->
+    <section id="trusted" class="py-20 border-y border-white/5 bg-white/[0.01]">
+        <p class="text-center text-[10px] tracking-[0.4em] text-gray-600 mb-10 uppercase">Trusted by forward-thinking teams</p>
+        <div class="marquee">
+            <div class="marquee-content text-2xl font-black text-gray-700">
+                <span>TECHCORE AI</span>
+                <span>LUMINA STUDIO</span>
+                <span>NEXUS VENTURES</span>
+                <span>AETHER SYSTEMS</span>
+                <span>QUANTUM FLOW</span>
+                <span>GLOBAL VISION</span>
+            </div>
+            <div class="marquee-content text-2xl font-black text-gray-700">
+                <span>TECHCORE AI</span>
+                <span>LUMINA STUDIO</span>
+                <span>NEXUS VENTURES</span>
+                <span>AETHER SYSTEMS</span>
+                <span>QUANTUM FLOW</span>
+                <span>GLOBAL VISION</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Visuals -->
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="mb-24">
+            <h2 data-aos="fade-right" class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">WHAT WE DO</h2>
+            <div class="h-1 w-20 bg-white"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Service 1: Web & App -->
+            <div data-aos="fade-up" class="group">
+                <div class="service-img-placeholder aspect-video rounded-3xl mb-8 flex items-center justify-center border border-white/10 overflow-hidden">
+                    <svg class="w-24 h-24 text-white/10 group-hover:text-white/20 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    <div class="absolute bottom-4 left-4 text-[10px] text-white/30 font-mono tracking-widest uppercase">01 / Full-Stack Architecture</div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Web & App Engineering</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-md">We build blazingly fast, SEO-optimized React & Next.js platforms that scale. From e-commerce to complex dashboards, we handle it all.</p>
+            </div>
+
+            <!-- Service 2: AI Agents -->
+            <div data-aos="fade-up" data-aos-delay="100" class="group">
+                <div class="service-img-placeholder aspect-video rounded-3xl mb-8 flex items-center justify-center border border-white/10 overflow-hidden">
+                    <svg class="w-24 h-24 text-white/10 group-hover:text-white/20 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <div class="absolute bottom-4 left-4 text-[10px] text-white/30 font-mono tracking-widest uppercase">02 / Automation</div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Autonomous AI Agents</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-md">Custom-trained LLM agents and voice bots designed to automate your sales, support, and repetitive operations with human-like precision.</p>
+            </div>
+
+            <!-- Service 3: Visual Design -->
+            <div data-aos="fade-up" class="group">
+                <div class="service-img-placeholder aspect-video rounded-3xl mb-8 flex items-center justify-center border border-white/10 overflow-hidden">
+                    <svg class="w-24 h-24 text-white/10 group-hover:text-white/20 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <div class="absolute bottom-4 left-4 text-[10px] text-white/30 font-mono tracking-widest uppercase">03 / Visual Content</div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">High-End Posters & Thumbnails</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-md">Stopping the scroll with cinematic visual pieces. We use advanced Diffusion models combined with professional retouching for unmatched quality.</p>
+            </div>
+
+            <!-- Service 4: Game Dev -->
+            <div data-aos="fade-up" data-aos-delay="100" class="group">
+                <div class="service-img-placeholder aspect-video rounded-3xl mb-8 flex items-center justify-center border border-white/10 overflow-hidden">
+                    <svg class="w-24 h-24 text-white/10 group-hover:text-white/20 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="absolute bottom-4 left-4 text-[10px] text-white/30 font-mono tracking-widest uppercase">04 / Interaction</div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Games & Experiences</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-md">Immersive 3D/2D games and interactive browser experiences that engage users and tell a powerful brand story.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-32 px-6 bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 data-aos="fade-up" class="text-4xl md:text-6xl font-bold tracking-tighter mb-4 italic">CLIENT ECHOES</h2>
+                <p class="text-gray-500 text-sm tracking-widest uppercase">The results speak for themselves</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div data-aos="fade-up" class="glass-card p-10 rounded-3xl">
+                    <p class="text-lg text-gray-300 mb-8 font-light leading-relaxed">"The AI agent built for our real estate business tripled our lead conversion in 2 months. Absolutely elite work."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-bold">Marcus Thorne</p>
+                            <p class="text-[10px] text-gray-500 uppercase">CEO, Thorne Realty</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-10 rounded-3xl">
+                    <p class="text-lg text-gray-300 mb-8 font-light leading-relaxed">"Needed a high-end portfolio in 48 hours. Not only was it fast, but the custom animations are stunning. 10/10."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-bold">Elena Rodriguez</p>
+                            <p class="text-[10px] text-gray-500 uppercase">Visual Artist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-10 rounded-3xl">
+                    <p class="text-lg text-gray-300 mb-8 font-light leading-relaxed">"Their ability to mix technical AI logic with high-end aesthetic design is something I haven't seen before."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full"></div>
+                        <div>
+                            <p class="text-sm font-bold">David Chen</p>
+                            <p class="text-[10px] text-gray-500 uppercase">Product Lead, Nexus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section id="contact" class="py-40 px-6 text-center overflow-hidden relative">
+        <div class="absolute inset-0 bg-white text-black flex flex-col justify-center items-center">
+            <div data-aos="zoom-in" class="z-10">
+                <h2 class="text-6xl md:text-[140px] font-black tracking-tighter mb-8 leading-[0.8] uppercase">Let's Talk<br>Build.</h2>
+                <p class="mb-12 text-sm font-bold tracking-widest text-black/60">I CAN DO ANYTHING YOU WANT USING AI.</p>
+                <a href="https://wa.me/917209260465?text=Hi! I saw your portfolio. I have a requirement for:" 
+                   class="inline-block bg-black text-white px-16 py-6 rounded-full text-xl font-bold hover:scale-105 transition-transform">
+                    WHATSAPP ME NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 bg-black text-center border-t border-white/5">
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase">Built with Precision by AI NEXUS &copy; 2025</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: false });
+
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('follower');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+            
+            // Follower has a slight delay
+            follower.style.left = (x - 16) + 'px';
+            follower.style.top = (y - 16) + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            follower.style.transform = 'scale(0.8)';
+            cursor.style.transform = 'scale(1.5)';
+        });
+        document.addEventListener('mouseup', () => {
+            follower.style.transform = 'scale(1)';
+            cursor.style.transform = 'scale(1)';
+        });
+
+        const links = document.querySelectorAll('a, button, .glass-card');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                follower.style.transform = 'scale(1.5)';
+                follower.style.borderColor = 'rgba(255,255,255,0.8)';
+                cursor.style.opacity = '0';
+            });
+            link.addEventListener('mouseleave', () => {
+                follower.style.transform = 'scale(1)';
+                follower.style.borderColor = 'rgba(255,255,255,0.2)';
+                cursor.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
+
